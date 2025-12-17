@@ -1,0 +1,26 @@
+UCS(Start, Goal)
+
+    CREATE priority queue PQ
+    CREATE empty set Visited
+
+    INSERT (Start, cost = 0) into PQ
+
+    WHILE PQ not empty DO
+        (Node, Cost) ← REMOVE lowest cost from PQ
+
+        IF Node = Goal THEN
+            PRINT "Goal Found with cost", Cost
+            STOP
+        END IF
+
+        IF Node not in Visited THEN
+            ADD Node to Visited
+
+            FOR each Child of Node DO
+                NewCost ← Cost + cost(Node, Child)
+                INSERT (Child, NewCost) into PQ
+            END FOR
+        END IF
+    END WHILE
+
+END UCS
