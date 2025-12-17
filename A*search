@@ -1,0 +1,23 @@
+A*(Start, Goal)
+
+    OPEN ← {Start}
+    g(Start) ← 0
+
+    WHILE OPEN not empty DO
+        n ← node in OPEN with lowest f(n)
+
+        IF n = Goal THEN
+            PRINT "Goal Found"
+            STOP
+        END IF
+
+        REMOVE n from OPEN
+
+        FOR each child of n DO
+            g(child) ← g(n) + cost(n, child)
+            f(child) ← g(child) + h(child)
+            ADD child to OPEN
+        END FOR
+    END WHILE
+
+END A*
