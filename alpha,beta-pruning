@@ -1,0 +1,30 @@
+AlphaBeta(node, depth, α, β, isMax)
+
+    IF depth = 0 OR node is terminal THEN
+        RETURN value(node)
+    END IF
+
+    IF isMax THEN
+        best ← -∞
+        FOR each child of node DO
+            best ← MAX(best, AlphaBeta(child, depth-1, α, β, FALSE))
+            α ← MAX(α, best)
+            IF β ≤ α THEN
+                BREAK    // prune
+            END IF
+        END FOR
+        RETURN best
+
+    ELSE
+        best ← +∞
+        FOR each child of node DO
+            best ← MIN(best, AlphaBeta(child, depth-1, α, β, TRUE))
+            β ← MIN(β, best)
+            IF β ≤ α THEN
+                BREAK    // prune
+            END IF
+        END FOR
+        RETURN best
+    END IF
+
+END AlphaBeta
