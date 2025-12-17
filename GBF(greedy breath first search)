@@ -1,0 +1,19 @@
+GreedyBFS(Start, Goal)
+
+    OPEN ← priority queue ordered by h(n)
+    INSERT Start into OPEN
+
+    WHILE OPEN not empty DO
+        n ← REMOVE node with lowest h(n)
+
+        IF n = Goal THEN
+            PRINT "Goal Found"
+            STOP
+        END IF
+
+        FOR each child of n DO
+            INSERT child into OPEN
+        END FOR
+    END WHILE
+
+END GreedyBFS
