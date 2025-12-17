@@ -1,0 +1,25 @@
+WaterJug(A, B, Target)
+
+    CREATE queue Q
+    CREATE set Visited
+
+    ENQUEUE (0, 0) into Q
+    ADD (0, 0) to Visited
+
+    WHILE Q not empty DO
+        (x, y) ← DEQUEUE Q
+
+        IF x = Target OR y = Target THEN
+            PRINT "Target Reached"
+            STOP
+        END IF
+
+        FOR each possible next state from (x, y) DO
+            IF state not in Visited THEN
+                ADD state to Visited
+                ENQUEUE state into Q
+            END IF
+        END FOR
+    END WHILE
+
+END WaterJug
