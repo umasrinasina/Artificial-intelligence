@@ -1,0 +1,16 @@
+Start
+
+Initialize weights and bias
+
+For each epoch
+    For each input
+        Calculate weighted sum
+        Apply activation function
+        Calculate error
+        Update weights
+    End For
+End For
+
+Display output
+
+Stop
